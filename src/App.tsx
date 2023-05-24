@@ -79,18 +79,16 @@ const App: FC = () => {
       (x) => x.phoneNumber === newContact.phoneNumber
     );
     if (check) {
-      const newList = contacts.map((obj) =>
+      var newList = contacts.map((obj) =>
         obj.phoneNumber === newContact.phoneNumber ? newContact : obj
       );
-      setContacts(newList);
-      exportToFile(newList);
       setSelected(null);
     } else {
-      const newList = contacts.concat([newContact]);
-      setContacts(newList);
-      exportToFile(newList);
+      var newList = contacts.concat([newContact]);
       setAddContactView(false);
     }
+    setContacts(newList);
+    exportToFile(newList);
   };
 
   return (
